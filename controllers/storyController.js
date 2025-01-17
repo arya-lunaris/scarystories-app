@@ -2,7 +2,7 @@ import express from 'express';
 import { Story, Vote, Rating, Comment } from '../models/story.js';
 const router = express.Router();
 
-router.route('/').get(async function (req, res, next) {
+router.route('/home').get(async function (req, res, next) {
     try {
         res.render('stories/home.ejs');
     } catch (e) {
@@ -16,6 +16,30 @@ router.route('/stories').get(async function (req, res, next) {
         res.render('stories/index.ejs', {
             allStories: allStories
         })
+    } catch (e) {
+        next(e);
+    }
+});
+
+router.route('/stories/popular').get(async function (req, res, next) {
+    try {
+        res.render('stories/popularStories.ejs');
+    } catch (e) {
+        next(e);
+    }
+});
+
+router.route('/stories/scariest').get(async function (req, res, next) {
+    try {
+        res.render('stories/scariestStories.ejs');
+    } catch (e) {
+        next(e);
+    }
+});
+
+router.route("/stories/new").get(async function (req, res, next) {
+    try {
+        res.render("stories/new.ejs");
     } catch (e) {
         next(e);
     }

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+
+    <title>Create New Story</title>
+</head>
+
+<body>
+    <%- include('../partials/nav') %>
+
+    <h1>Create a New Story!</h1>
+
+    <form action="/stories" method="POST" class="form">
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" class="large-input" />
+    
+        <label for="content">Story:</label>
+        <textarea name="content" id="content" class="large-textarea"></textarea>
+
+        <button class="action-button" type="submit">Add Story</button>
+    </form>
+
+</body>
+
+</html>

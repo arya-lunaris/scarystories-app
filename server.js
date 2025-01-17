@@ -8,6 +8,8 @@ import { dirname } from 'path';
 import dotenv from 'dotenv';
 import storyController from './controllers/storyController.js';
 import userController from './controllers/userController.js'; 
+import errorController from './controllers/errorController.js';
+
 import session from 'express-session';
 
 
@@ -39,6 +41,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.use('/', storyController);
 app.use('/user', userController);
+app.use('/error', errorController);
 
 app.use(errorHandler);
 

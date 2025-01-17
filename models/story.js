@@ -70,4 +70,4 @@ const Vote = mongoose.model('Vote', voteSchema);
 const Rating = mongoose.model('Rating', ratingSchema);
 const Comment = mongoose.model('Comment', commentSchema);
 
-export default { Story, Vote, Rating, Comment };
+export { Story, Vote, Rating, Comment };

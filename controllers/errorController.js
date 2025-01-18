@@ -2,7 +2,6 @@ import express from 'express';
 
 const router = express.Router();
 
-
 router.route('/loginError').get(function (req, res) {
     res.render('errors/loginError.ejs');
 });

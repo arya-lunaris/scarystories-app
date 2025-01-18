@@ -118,5 +118,4 @@ router.route("/logout").get(async function (req, res, next) {
     res.redirect("/home");
 });
 
-
 export default router;

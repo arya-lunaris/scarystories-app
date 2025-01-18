@@ -22,7 +22,6 @@ router.route('/stories').get(async function (req, res, next) {
     }
 });
 
-
 router.route('/stories/popular').get(async function (req, res, next) {
     try {
         const allStories = await Story.find().populate('user');
@@ -52,9 +51,19 @@ router.route('/stories/scariest').get(async function (req, res, next) {
     try {
         const allStories = await Story.find().populate('user');
 
+        const storiesWithAvgRating = allStories.map(story => {
+            const totalRating = story.ratings.reduce((sum, rating) => sum + rating.value, 0);
+            const avgRating = totalRating / story.ratings.length;
+            return { ...story.toObject(), avgRating };
+        });
+
+        const filteredStories = storiesWithAvgRating.filter(story => story.avgRating >= 3);
+
+        const sortedStories = filteredStories.sort((a, b) => b.avgRating - a.avgRating);
+
         res.render('stories/scariestStories.ejs', {
-                allStories: allStories
-        })
+            allStories: sortedStories
+        });
     } catch (e) {
         next(e);
     }
@@ -155,8 +164,5 @@ router.route('/stories/:id').put(async function (req, res, next) {
         next(e);
     }
 });
-
-
-
 
 export default router;

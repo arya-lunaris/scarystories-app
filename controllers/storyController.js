@@ -23,7 +23,10 @@ router.route('/stories').get(async function (req, res, next) {
 
 router.route('/stories/popular').get(async function (req, res, next) {
     try {
-        res.render('stories/popularStories.ejs');
+        const allStories = await Story.find().populate('user');
+        res.render('stories/popularStories.ejs', {
+            allStories: allStories
+        })
     } catch (e) {
         next(e);
     }
@@ -31,7 +34,11 @@ router.route('/stories/popular').get(async function (req, res, next) {
 
 router.route('/stories/scariest').get(async function (req, res, next) {
     try {
-        res.render('stories/scariestStories.ejs');
+        const allStories = await Story.find().populate('user');
+
+        res.render('stories/scariestStories.ejs', {
+                allStories: allStories
+        })
     } catch (e) {
         next(e);
     }

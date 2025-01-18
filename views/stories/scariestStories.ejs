@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Scariest Stories</title>
+</head>
+
+<body>
+    <%- include('../partials/nav') %>
+
+    <h1>Scariest Stories</h1>
+
+    <div class="story-list">
+        <% allStories.forEach((story)=> { %>
+            <div class="story-card">
+                <div class="story-card-content">
+                    <h2>
+                        <%= story.title %>
+                    </h2>
+                    <p>
+                        <%= story.content.substring(0, 150) %>... 
+                    </p>
+                    <div class="center-button">
+                        <a href="/stories/<%= story._id %>">Read Story</a>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</body>
+
+</html>

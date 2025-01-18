@@ -1,5 +1,6 @@
 import express from 'express';
 import { Story, Vote, Rating, Comment } from '../models/story.js';
+
 const router = express.Router();
 
 router.route('/home').get(async function (req, res, next) {

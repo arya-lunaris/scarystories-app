@@ -9,7 +9,7 @@ const voteSchema = new mongoose.Schema({
     value: { 
         type: String, 
         enum: ['up', 'down'], 
-        required: true 
+        required: true
     }
 });
 
@@ -22,7 +22,8 @@ const ratingSchema = new mongoose.Schema({
     value: { 
         type: Number, 
         min: 1, 
-        max: 5 
+        max: 5,
+        required: true
     }
 });
 

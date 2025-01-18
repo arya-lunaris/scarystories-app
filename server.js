@@ -11,9 +11,8 @@ import userController from './controllers/userController.js';
 import errorController from './controllers/errorController.js';
 import commentController from './controllers/commentController.js'; 
 import voteController from './controllers/voteController.js';
-
+import rateController from './controllers/rateController.js';
 import session from 'express-session';
-
 
 dotenv.config();
 
@@ -46,6 +45,7 @@ app.use('/user', userController);
 app.use('/error', errorController);
 app.use('/', commentController);
 app.use('/', voteController);
+app.use('/', rateController);
 
 app.use(errorHandler);
 

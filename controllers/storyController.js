@@ -22,12 +22,27 @@ router.route('/stories').get(async function (req, res, next) {
     }
 });
 
+
 router.route('/stories/popular').get(async function (req, res, next) {
     try {
         const allStories = await Story.find().populate('user');
+        
+  
+        const popularStories = allStories.filter(story => {
+            const upvotes = story.votes.filter(vote => vote.value === 'up');
+            return upvotes.length > 2; 
+        });
+
+   
+        const sortedStories = popularStories.sort((a, b) => {
+            const upvotesA = a.votes.filter(vote => vote.value === 'up').length;
+            const upvotesB = b.votes.filter(vote => vote.value === 'up').length;
+            return upvotesB - upvotesA; 
+        });
+        
         res.render('stories/popularStories.ejs', {
-            allStories: allStories
-        })
+            allStories: sortedStories
+        });
     } catch (e) {
         next(e);
     }

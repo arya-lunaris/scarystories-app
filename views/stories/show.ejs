@@ -11,67 +11,77 @@
 <body>
     <%- include('../partials/nav') %>
 
-        <div class="container">
-            <div class="story-card">
-                <div class="story-card-content">
-                    <h1 class="story-card-title">
-                        <%= story.title %>
-                    </h1>
+    <div class="container">
+        <div class="story-card">
+            <div class="story-card-content">
+                <h1 class="story-card-title">
+                    <%= story.title %>
+                </h1>
 
-                    <p class="story-author">Written by: <%= story.user.username %>
+                <p class="story-author">Written by: <%= story.user.username %></p>
+
+                <div class="story-content">
+                    <p>
+                        <%= story.content %>
                     </p>
-
-                    <div class="story-content">
-                        <p>
-                            <%= story.content %>
-                        </p>
-                    </div>
-
-                    <div class="comment-section">
-                        <h3 class="comment-title">Comments</h3>
-                        <ul class="comment-list">
-                            <% story.comments.forEach(comment=> { %>
-                                <li class="comment-item">
-                                    <span class="comment-content">
-                                        <%= comment.content %>
-                                    </span>
-                                    <% if (user && comment.user._id.toString()===user._id.toString()) { %>
-                                        <form
-                                            action="/stories/<%= story._id %>/comments/<%= comment._id %>?_method=DELETE"
-                                            method="POST" class="comment-form">
-                                            <button type="submit" class="delete-comment-button">Delete</button>
-                                        </form>
-                                        <% } %>
-                                </li>
-                                <% }) %>
-                        </ul>
-                    </div>
-
-                    <% if (user) { %>
-                        <h3 class="post-comment">Post a Comment</h3>
-                        <form action="/stories/<%= story._id %>/comments" method="POST">
-                            <textarea class="comment-text-area" name="content" rows="3" placeholder="Write a comment..."
-                                required></textarea>
-                            <button class="action-button" type="submit">Post Comment</button>
-                        </form>
-                        <% } else { %>
-                            <p><a href="/user/login">Log in</a> to post a comment or manage the story.</p>
-                            <% } %>
-
-                                <% if (user && story.user._id.toString()===user._id.toString()) { %>
-                                    <a href="/stories/edit/<%=story._id%>" class="edit-story-button">Edit Story</a>
-
-                                    <form action="/stories/<%= story._id %>?_method=DELETE" method="POST"
-                                        class="delete-form">
-                                        <button class="delete-button" type="submit">
-                                            Delete "<%= story.title %>"
-                                        </button>
-                                    </form>
-                                    <% } %>
-
                 </div>
+
+                <div class="voting-section">
+                    <% if (user) { %> 
+                        <form action="/stories/<%= story._id %>/vote" method="POST">
+                            <input type="hidden" name="value" value="up">
+                            <button type="submit" class="upvote-button">👍</button>
+                        </form>
+                        <form action="/stories/<%= story._id %>/vote" method="POST">
+                            <input type="hidden" name="value" value="down">
+                            <button type="submit" class="downvote-button">👎</button>
+                        </form>
+                    <% } else { %>
+                        <p><a href="/user/login">Log in</a> to vote on this story.</p>
+                    <% } %>
+
+
+                <div class="comment-section">
+                    <h3 class="comment-title">Comments</h3>
+                    <ul class="comment-list">
+                        <% story.comments.forEach(comment => { %>
+                            <li class="comment-item">
+                                <span class="comment-content">
+                                    <%= comment.content %>
+                                </span>
+                                <% if (user && comment.user._id.toString() === user._id.toString()) { %>
+                                    <form action="/stories/<%= story._id %>/comments/<%= comment._id %>?_method=DELETE"
+                                          method="POST" class="comment-form">
+                                        <button type="submit" class="delete-comment-button">Delete</button>
+                                    </form>
+                                <% } %>
+                            </li>
+                        <% }) %>
+                    </ul>
+                </div>
+
+                <% if (user) { %>
+                    <h3 class="post-comment">Post a Comment</h3>
+                    <form action="/stories/<%= story._id %>/comments" method="POST">
+                        <textarea class="comment-text-area" name="content" rows="3" placeholder="Write a comment..." required></textarea>
+                        <button class="action-button" type="submit">Post Comment</button>
+                    </form>
+                <% } else { %>
+                    <p><a href="/user/login">Log in</a> to post a comment or manage the story.</p>
+                <% } %>
+
+                <% if (user && story.user._id.toString() === user._id.toString()) { %>
+                    <a href="/stories/edit/<%= story._id %>" class="edit-story-button">Edit Story</a>
+
+                    <form action="/stories/<%= story._id %>?_method=DELETE" method="POST" class="delete-form">
+                        <button class="delete-button" type="submit">
+                            Delete "<%= story.title %>"
+                        </button>
+                    </form>
+                <% } %>
             </div>
         </div>
+    </div>
 
 </body>
 

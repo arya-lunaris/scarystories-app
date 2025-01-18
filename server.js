@@ -6,6 +6,7 @@ import errorHandler from './middleware/errorHandler.js';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import dotenv from 'dotenv';
+import MongoStore from 'connect-mongo'
 import storyController from './controllers/storyController.js';
 import userController from './controllers/userController.js'; 
 import errorController from './controllers/errorController.js';
@@ -22,13 +23,17 @@ const app = express();
 app.use(session({
     secret: process.env.SECRET_KEY,
     resave: false,
-    saveUnitialized: true,
+    saveUninitialized: false,
+    store: MongoStore.create({
+        mongoUrl: 'mongodb://localhost:27017/scarystories-db',
+        collectionName: 'sessions', 
+    }),
     cookie: {
-        secure: false,
+        secure: false, 
         httpOnly: true,
-        maxAge: 1000 * 60 * 60 * 24,
-    }
-}))
+        maxAge: 1000 * 60 * 60 * 24, 
+    },
+}));
 
 app.use((req, res, next) => {
     res.locals.user = req.session.user || null;

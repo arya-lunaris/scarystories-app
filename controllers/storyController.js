@@ -97,9 +97,9 @@ router.route('/stories/:id').delete(async function (req, res, next) {
         
         console.log(story, req.session)
         
-        // if (!story.user._id.equals(req.session.user._id)) {
-        //     return res.redirect('/error/deleteStoryError');
-        // }
+        if (!story.user._id.equals(req.session.user._id)) {
+            return res.redirect('/error/deleteStoryError');
+        }
 
         const deletedStory = await Story.findByIdAndDelete(storyId).populate('user');
 
@@ -132,9 +132,9 @@ router.route('/stories/:id').put(async function (req, res, next) {
         const storyId = req.params.id;
         const story = await Story.findById(storyId).populate('user');
 
-        // if (!story.user._id.equals(req.session.user._id)) {
-        //     return res.redirect('/error/updateStoryError');
-        // }
+        if (!story.user._id.equals(req.session.user._id)) {
+            return res.redirect('/error/updateStoryError');
+        }
 
         const updatedStory = await Story.findByIdAndUpdate(storyId, req.body, { new: true }).populate('user');
 

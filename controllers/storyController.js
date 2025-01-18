@@ -70,21 +70,14 @@ router.route('/stories/:id').get(async function (req, res, next) {
 
 router.route('/stories').post(async function (req, res, next) {
     try {
-      
-        const userId = req.body.user;
-
-        if (!userId) {
-            return res.status(400).json({ message: "User ID is required" });
+        if (!req.session.user) {
+            return res.redirect('/error/loginError');
         }
 
-        const story = new Story({
-            title: req.body.title,
-            content: req.body.content,
-            user: userId,  
-        });
-
-        await story.save();
-        res.status(201).json(story);
+  
+        req.body.user = req.session.user; 
+        await Story.create(req.body);
+        res.redirect('/stories'); 
     } catch (e) {
         next(e);
     }

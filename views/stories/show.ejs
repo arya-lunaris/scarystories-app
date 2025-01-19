@@ -11,8 +11,8 @@
 <body>
     <%- include('../partials/nav') %>
 
-    <div class="container">
-        <div class="story-card">
+    <div class="story-container">
+        <div>
             <div class="story-card-content">
                 <h1 class="title">
                     <%= story.title %>
@@ -77,21 +77,22 @@
                 <% if (user) { %>
                     <h3 class="post-comment">Post a Comment</h3>
                     <form action="/stories/<%= story._id %>/comments" method="POST">
-                        <textarea class="comment-text-area" name="content" rows="3" placeholder="Write a comment..." required></textarea>
-                        <button class="action-button" type="submit">Post Comment</button>
+                        <textarea class="comment-text-area" name="content" rows="3" required></textarea>
+                        <button id="comment-button" class="action-button" type="submit">Post Comment</button>
                     </form>
                 <% } else { %>
                     <p><a href="/user/login">Log in</a> to post a comment or manage the story.</p>
                 <% } %>
 
                 <% if (user && story.user._id.toString() === user._id.toString()) { %>
-                    <a href="/stories/edit/<%= story._id %>" class="edit-story-button">Edit Story</a>
-
-                    <form action="/stories/<%= story._id %>?_method=DELETE" method="POST" class="delete-form">
-                        <button class="delete-button" type="submit">
-                            Delete "<%= story.title %>"
-                        </button>
-                    </form>
+                    <div class="button-container">
+                        <a href="/stories/edit/<%= story._id %>" class="edit-story-button">Edit Story</a>
+                        <form action="/stories/<%= story._id %>?_method=DELETE" method="POST" class="delete-form">
+                            <button class="delete-button" type="submit">
+                                Delete "<%= story.title %>"
+                            </button>
+                        </form>
+                    </div>
                 <% } %>
 
             </div>

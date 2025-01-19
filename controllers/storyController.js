@@ -159,7 +159,7 @@ router.route('/stories/:id').put(async function (req, res, next) {
             return res.redirect('/error/storyNotFound');
         }
 
-        res.redirect('/stories');
+        res.redirect(`/stories/${story._id}`);
     } catch (e) {
         next(e);
     }

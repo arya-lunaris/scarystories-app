@@ -39,7 +39,7 @@ router.route('/stories/popular').get(async function (req, res, next) {
             return upvotesB - upvotesA; 
         });
         
-        res.render('stories/popularStories.ejs', {
+        res.render('stories/popular.ejs', {
             allStories: sortedStories
         });
     } catch (e) {
@@ -61,7 +61,7 @@ router.route('/stories/scariest').get(async function (req, res, next) {
 
         const sortedStories = filteredStories.sort((a, b) => b.avgRating - a.avgRating);
 
-        res.render('stories/scariestStories.ejs', {
+        res.render('stories/scariest.ejs', {
             allStories: sortedStories
         });
     } catch (e) {

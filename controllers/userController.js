@@ -3,7 +3,6 @@ import User from '../models/user.js';
 
 const router = express.Router();
 
-
 router.route('/signup').get(async function (req, res) {
     res.render('user/signup.ejs');
 });

@@ -1,9 +1,13 @@
 <nav>
+  <div class="nav-left">
     <a href="/home">Home</a>
     <a href="/stories">All Stories</a>
     <a href="/stories/popular">Popular Stories</a>
     <a href="/stories/scariest">Scariest Stories</a>
     <a href="/stories/new">Create a Story</a>
+  </div>
+  
+  <div class="nav-right">
     <% if (!user) { %>
       <a class="signup" href="/user/signup">Sign Up</a>
       <a class="login" href="/user/login">Login</a>
@@ -12,4 +16,5 @@
       <a class="profile" href="/user/profile">Profile</a>
       <a class="logout" href="/user/logout">Log Out</a>
     <% } %>
-  </nav>
+  </div>
+</nav>

@@ -11,13 +11,13 @@
 <body>
     <%- include('../partials/nav') %>
 
-    <h1>All Stories</h1>
+    <h1 class="title">All Stories</h1>
 
     <div class="story-list">
         <% allStories.forEach((story)=> { %>
             <div class="story-card">
                 <div class="story-card-content">
-                    <h2>
+                    <h2 class="story-title">
                         <%= story.title %>
                     </h2>
                     <p>

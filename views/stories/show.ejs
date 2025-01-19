@@ -14,7 +14,7 @@
     <div class="container">
         <div class="story-card">
             <div class="story-card-content">
-                <h1 class="story-card-title">
+                <h1 class="title">
                     <%= story.title %>
                 </h1>
 
@@ -27,31 +27,33 @@
                     </p>
                 </div>
 
-                <div class="vote-section">
-                    <% if (user) { %>
-                        <h3 class="vote-title">Did you like this story?</h3>
-                        <form action="/stories/<%= story._id %>/vote" method="POST">
-                            <button type="submit" name="value" value="up" class="vote-button">👍</button>
-                            <button type="submit" name="value" value="down" class="vote-button">👎</button>
-                        </form>
-                    <% } else { %>
-                        <p><a href="/user/login">Log in</a> to vote on this story.</p>
-                    <% } %>
-                </div>
+                <div class="vote-rating-section">
+                    <div class="vote-section">
+                        <% if (user) { %>
+                            <h3 class="vote-title">Did you like this story?</h3>
+                            <form action="/stories/<%= story._id %>/vote" method="POST">
+                                <button type="submit" name="value" value="up" class="vote-button">👍</button>
+                                <button type="submit" name="value" value="down" class="vote-button">👎</button>
+                            </form>
+                        <% } else { %>
+                            <p><a href="/user/login">Log in</a> to vote on this story.</p>
+                        <% } %>
+                    </div>
 
-                <div class="rating-section">
-                    <% if (user) { %>
-                        <h3 class="rate-title">How scary did you find this story?</h3>
-                        <form action="/stories/<%= story._id %>/rate" method="POST">
-                            <button type="submit" name="value" value="1" class="star-button">★</button>
-                            <button type="submit" name="value" value="2" class="star-button">★</button>
-                            <button type="submit" name="value" value="3" class="star-button">★</button>
-                            <button type="submit" name="value" value="4" class="star-button">★</button>
-                            <button type="submit" name="value" value="5" class="star-button">★</button>
-                        </form>
-                    <% } else { %>
-                        <p><a href="/user/login">Log in</a> to rate this story.</p>
-                    <% } %>
+                    <div class="rating-section">
+                        <% if (user) { %>
+                            <h3 class="rate-title">How scary did you find this story?</h3>
+                            <form action="/stories/<%= story._id %>/rate" method="POST">
+                                <button type="submit" name="value" value="1" class="rate-button">💀</button>
+                                <button type="submit" name="value" value="2" class="rate-button">💀</button>
+                                <button type="submit" name="value" value="3" class="rate-button">💀</button>
+                                <button type="submit" name="value" value="4" class="rate-button">💀</button>
+                                <button type="submit" name="value" value="5" class="rate-button">💀</button>
+                            </form>
+                        <% } else { %>
+                            <p><a href="/user/login">Log in</a> to rate this story.</p>
+                        <% } %>
+                    </div>
                 </div>
 
                 <div class="comment-section">

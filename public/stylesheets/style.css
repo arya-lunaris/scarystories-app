@@ -26,6 +26,7 @@ nav {
     align-items: center;
     padding: 10px 20px;
     background-color: rgba(0, 0, 0, 0.8); 
+    font-size: 20px
 }
 
 nav a {
@@ -50,6 +51,36 @@ nav a:hover {
 
 .nav-right a {
     margin-left: 20px; 
+}
+
+/* homepage styling */
+.home-container {
+    max-width: 800px;
+    margin: 100px auto;
+    text-align: center; 
+}
+
+.home-title {
+    font-size: 50px;
+    margin-top: 0px;
+    margin-bottom: -20px;
+}
+
+.allstories-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.allstories-button:hover {
+    background-color: #c0392b;
 }
 
 /* story-cards */
@@ -101,7 +132,7 @@ nav a:hover {
 
 .center-button a {
     display: inline-block;
-    background-color: #ff6347; 
+    background-color: #e74c3c; 
     color: #fff;
     padding: 10px 15px;
     border-radius: 5px;

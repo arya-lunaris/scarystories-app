@@ -47,6 +47,7 @@ nav a {
     text-decoration: none;
     margin: 0 10px;
     font-family: 'Metal Mania', Arial, sans-serif;
+    transition: color 0.3s ease;
 }
 
 nav a:hover {
@@ -95,8 +96,8 @@ nav a:hover {
 
 .allstories-button {
     display: inline-block;
-    padding: 15px 30px;
-    font-size: 1rem;
+    padding: 10px 20px;
+    font-size: 1.2rem;
     font-weight: bold;
     color: #fff;
     background-color: #e74c3c;
@@ -237,7 +238,6 @@ h1.title {
     color: #d3d3d3;
 }
 
-
 /* Comment Section for Story Page */
 .comment-section {
     margin-top: 40px;
@@ -273,6 +273,7 @@ h1.title {
     border: none;
     cursor: pointer;
     font-size: 1rem;
+    transition: color 0.3s ease;
 }
 
 .delete-comment-button:hover {
@@ -309,12 +310,12 @@ h1.title {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .action-button:hover {
     background-color: #45a049;
 }
-
 
 /* Styling for Story Page */
 .story-container {
@@ -347,12 +348,14 @@ h1.title {
 .edit-story-button {
     background-color: #4CAF50;
     margin-right: 10px;
+    transition: background-color 0.3s ease;
 }
 
 .delete-button {
     background-color: #e74c3c;
     border: none;
     height: 41px;
+    transition: background-color 0.3s ease;
 }
 
 .edit-story-button:hover {
@@ -398,9 +401,9 @@ h1.title {
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s;
     margin: 0 auto;
     display: block;
+    transition: background-color 0.3s;
 }
 
 .form .action-button:hover {
@@ -413,9 +416,9 @@ h1.title {
 }
 
 .centered-link a {
-    font-size: 16px;
-    color: #4CAF50;
+    font-size: 18px;
     text-decoration: none;
+    transition: text-decoration 0.3s ease;
 }
 
 .centered-link a:hover {

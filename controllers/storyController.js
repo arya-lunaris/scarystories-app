@@ -25,20 +25,20 @@ router.route('/stories').get(async function (req, res, next) {
 router.route('/stories/popular').get(async function (req, res, next) {
     try {
         const allStories = await Story.find().populate('user');
-        
-  
+
+
         const popularStories = allStories.filter(story => {
             const upvotes = story.votes.filter(vote => vote.value === 'up');
-            return upvotes.length > 2; 
+            return upvotes.length > 2;
         });
 
-   
+
         const sortedStories = popularStories.sort((a, b) => {
             const upvotesA = a.votes.filter(vote => vote.value === 'up').length;
             const upvotesB = b.votes.filter(vote => vote.value === 'up').length;
-            return upvotesB - upvotesA; 
+            return upvotesB - upvotesA;
         });
-        
+
         res.render('stories/popular.ejs', {
             allStories: sortedStories
         });
@@ -77,10 +77,23 @@ router.route("/stories/new").get(async function (req, res, next) {
     }
 });
 
+router.route('/stories/random').get(async function (req, res, next) {
+    try {
+        const allStories = await Story.find().populate('user');
+        const randomStory = allStories[Math.floor(Math.random() * allStories.length)];
+
+        res.render('stories/random.ejs', {
+            story: randomStory
+        });
+    } catch (e) {
+        next(e);
+    }
+});
+
 router.route('/stories/:id').get(async function (req, res, next) {
     try {
         const storyId = req.params.id;
-        const story = await Story.findById(storyId);
+        const story = await Story.findById(storyId).populate('user');
 
         if (!story) {
             return res.redirect('/error/storyNotFound');
@@ -98,10 +111,10 @@ router.route('/stories').post(async function (req, res, next) {
             return res.redirect('/error/loginError');
         }
 
-  
-        req.body.user = req.session.user; 
+
+        req.body.user = req.session.user;
         await Story.create(req.body);
-        res.redirect('/stories'); 
+        res.redirect('/stories');
     } catch (e) {
         next(e);
     }
@@ -111,9 +124,9 @@ router.route('/stories/:id').delete(async function (req, res, next) {
     try {
         const storyId = req.params.id;
         const story = await Story.findById(storyId).populate('user');
-        
+
         console.log(story, req.session)
-        
+
         if (!story.user._id.equals(req.session.user._id)) {
             return res.redirect('/error/deleteStoryError');
         }

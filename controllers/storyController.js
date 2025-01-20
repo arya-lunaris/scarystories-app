@@ -94,12 +94,29 @@ router.route('/stories/:id').get(async function (req, res, next) {
     try {
         const storyId = req.params.id;
         const story = await Story.findById(storyId).populate('user');
-
+        
         if (!story) {
             return res.redirect('/error/storyNotFound');
         }
 
-        res.render('stories/show.ejs', { story: story });
+        let userVoteValue = null;
+        let userRatingValue = null;
+
+        const userVote = story.votes.find(vote => vote.user.toString() === req.session.user._id.toString());
+        if (userVote) {
+            userVoteValue = userVote.value;
+        }
+
+        const userRating = story.ratings.find(rating => rating.user.toString() === req.session.user._id.toString());
+        if (userRating) {
+            userRatingValue = userRating.value;
+        }
+
+        res.render('stories/show.ejs', {
+            story: story,
+            userVote: userVoteValue,
+            userRating: userRatingValue,
+        });
     } catch (e) {
         next(e);
     }

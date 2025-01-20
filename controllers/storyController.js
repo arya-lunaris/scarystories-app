@@ -79,7 +79,7 @@ router.route("/stories/new").get(async function (req, res, next) {
 
 router.route('/stories/random').get(async function (req, res, next) {
     try {
-        const allStories = await Story.find().populate('user');
+        const allStories = await Story.find().populate('user').populate('comments.user');
         const randomStory = allStories[Math.floor(Math.random() * allStories.length)];
 
         let userVoteValue = null;
@@ -108,7 +108,7 @@ router.route('/stories/random').get(async function (req, res, next) {
 router.route('/stories/:id').get(async function (req, res, next) {
     try {
         const storyId = req.params.id;
-        const story = await Story.findById(storyId).populate('user');
+        const story = await Story.findById(storyId).populate('user').populate('comments.user');
         
         if (!story) {
             return res.redirect('/error/storyNotFound');

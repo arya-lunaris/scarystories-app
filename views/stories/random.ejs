@@ -33,15 +33,23 @@
                                 <h3 class="vote-title">Did you like this story?</h3>
                                 <form action="/stories/<%= story._id %>/vote" method="POST" class="rate-vote-form">
                                     <% if (userVote === 'up') { %>
-                                        <button type="submit" name="value" value="up" class="vote-button active">👍</button>
+                                        <button type="submit" name="value" value="up" class="vote-button active">
+                                            <img src="/images/thumb-up.png" alt="Thumb Up" class="thumb-up">
+                                        </button>
                                     <% } else { %>
-                                        <button type="submit" name="value" value="up" class="vote-button">👍</button>
+                                        <button type="submit" name="value" value="up" class="vote-button">
+                                            <img src="/images/thumb-up.png" alt="Thumb Up" class="thumb-up">
+                                        </button>
                                     <% } %>
                                     
                                     <% if (userVote === 'down') { %>
-                                        <button type="submit" name="value" value="down" class="vote-button active">👎</button>
+                                        <button type="submit" name="value" value="down" class="vote-button active">
+                                            <img src="/images/thumb-down.png" alt="Thumb Down" class="thumb-down">
+                                        </button>
                                     <% } else { %>
-                                        <button type="submit" name="value" value="down" class="vote-button">👎</button>
+                                        <button type="submit" name="value" value="down" class="vote-button">
+                                            <img src="/images/thumb-down.png" alt="Thumb Down" class="thumb-down">
+                                        </button>
                                     <% } %>
                                 </form>
                             <% } %>
@@ -52,33 +60,53 @@
                                 <h3 class="rate-title">How scary did you find this story?</h3>
                                 <form action="/stories/<%= story._id %>/rate" method="POST" class="rate-vote-form">
                                     <% if (userRating === 1) { %>
-                                        <button type="submit" name="value" value="1" class="rate-button active">💀</button>
+                                        <button type="submit" name="value" value="1" class="rate-button active">
+                                            <img src="/images/rate-icon.png" alt="Rating Icon" class="rate-icon">
+                                        </button>
                                     <% } else { %>
-                                        <button type="submit" name="value" value="1" class="rate-button">💀</button>
+                                        <button type="submit" name="value" value="1" class="rate-button">
+                                            <img src="/images/rate-icon.png" alt="Rating Icon" class="rate-icon">
+                                        </button>
                                     <% } %>
                                     
                                     <% if (userRating === 2) { %>
-                                        <button type="submit" name="value" value="2" class="rate-button active">💀</button>
+                                        <button type="submit" name="value" value="2" class="rate-button active">
+                                            <img src="/images/rate-icon.png" alt="Rating Icon" class="rate-icon">
+                                        </button>
                                     <% } else { %>
-                                        <button type="submit" name="value" value="2" class="rate-button">💀</button>
+                                        <button type="submit" name="value" value="2" class="rate-button">
+                                            <img src="/images/rate-icon.png" alt="Rating Icon" class="rate-icon">
+                                        </button>
                                     <% } %>
                     
                                     <% if (userRating === 3) { %>
-                                        <button type="submit" name="value" value="3" class="rate-button active">💀</button>
+                                        <button type="submit" name="value" value="3" class="rate-button active">
+                                            <img src="/images/rate-icon.png" alt="Rating Icon" class="rate-icon">
+                                        </button>
                                     <% } else { %>
-                                        <button type="submit" name="value" value="3" class="rate-button">💀</button>
+                                        <button type="submit" name="value" value="3" class="rate-button">
+                                            <img src="/images/rate-icon.png" alt="Rating Icon" class="rate-icon">
+                                        </button>
                                     <% } %>
                     
                                     <% if (userRating === 4) { %>
-                                        <button type="submit" name="value" value="4" class="rate-button active">💀</button>
+                                        <button type="submit" name="value" value="4" class="rate-button active">
+                                            <img src="/images/rate-icon.png" alt="Rating Icon" class="rate-icon">
+                                        </button>
                                     <% } else { %>
-                                        <button type="submit" name="value" value="4" class="rate-button">💀</button>
+                                        <button type="submit" name="value" value="4" class="rate-button">
+                                            <img src="/images/rate-icon.png" alt="Rating Icon" class="rate-icon">
+                                        </button>
                                     <% } %>
                     
                                     <% if (userRating === 5) { %>
-                                        <button type="submit" name="value" value="5" class="rate-button active">💀</button>
+                                        <button type="submit" name="value" value="5" class="rate-button active">
+                                            <img src="/images/rate-icon.png" alt="Rating Icon" class="rate-icon">
+                                        </button>
                                     <% } else { %>
-                                        <button type="submit" name="value" value="5" class="rate-button">💀</button>
+                                        <button type="submit" name="value" value="5" class="rate-button">
+                                            <img src="/images/rate-icon.png" alt="Rating Icon" class="rate-icon">
+                                        </button>
                                     <% } %>
                                 </form>
                             <% } %>
@@ -91,7 +119,7 @@
                             <% story.comments.forEach(comment=> { %>
                                 <li class="comment-item">
                                     <span class="comment-content">
-                                        <%= story.user.username %>: <%=comment.content %>
+                                        <%= comment.user.username %>: <%=comment.content %>
                                     </span>
                                     <% if (user && comment.user._id.toString()===user._id.toString()) { %>
                                         <form

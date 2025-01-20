@@ -231,14 +231,29 @@ h1.title {
     background: transparent;
     border: none;
     cursor: pointer;
-    color: #d3d3d3;
     margin-top: -10px;
 }
 
+.thumb-up, .thumb-down, .rate-icon {
+    width: 30px;
+    height: auto;
+    margin: 5px;
+    vertical-align: middle;
+    transition: transform 0.2s ease, opacity 0.3s ease;
+}
+
+.thumb-up:hover, .thumb-down:hover, .rate-icon:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+
 .vote-button.active, .rate-button.active {
-    border: 2px solid #e74c3c; 
-    background-color: transparent; 
-    border-radius: 10px;
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: #fff;
+    border-radius: 50%;
+    padding: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
 }
 
 /* Comment Section for Story Page */

@@ -34,48 +34,104 @@ nav {
     padding: 10px 20px;
     background-color: rgba(0, 0, 0, 0.8);
     font-size: 20px;
-}
-
-.logo-gif {
+  }
+  
+  .navbar-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-left {
+    flex-grow: 1;
+  }
+  
+  .nav-middle {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-grow: 2;
+  }
+  
+  .nav-right {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+  }
+  
+  .logo-gif {
     width: 200px;
     height: auto;
-    margin-right: 20px;
-}
-
-nav a {
+  }
+  
+  nav a {
     color: #d3d3d3;
     text-decoration: none;
     margin: 0 10px;
     font-family: 'Metal Mania', Arial, sans-serif;
     transition: color 0.3s ease;
-}
-
-nav a:hover {
+  }
+  
+  nav a:hover {
     text-decoration: underline;
     color: #e74c3c;
-}
+  }
 
-.nav-left {
-    display: flex;
-    justify-content: flex-start;
-    flex-grow: 1;
-}
-
-.nav-middle {
-    display: flex;
-    justify-content: center;
-    flex-grow: 1;
-    margin-left: -70px;
-}
-
-.nav-right {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.nav-right a {
-    margin-left: 20px;
-}
+  @media (max-width: 1024px) {
+    nav {
+      font-size: 18px;
+    }
+  
+    .nav-middle {
+      gap: 10px; 
+    }
+  
+    .nav-right a {
+      margin-left: 10px; 
+    }
+  }
+  
+  @media (max-width: 768px) {
+    nav {
+      font-size: 16px;
+    }
+  
+    .logo-gif {
+      display: none; 
+    }
+  
+    .nav-middle {
+      gap: 8px; 
+    }
+  }
+  
+  @media (max-width: 480px) {
+    nav {
+      flex-direction: column; 
+      align-items: center;
+    }
+  
+    .nav-left,
+    .nav-middle,
+    .nav-right {
+      flex-grow: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+  
+    nav a {
+      margin: 5px 0; 
+      font-size: 14px;
+    }
+  
+    .nav-middle,
+    .nav-right {
+      justify-content: center;
+    }
+  }
 
 /* homepage styling */
 .home-container {

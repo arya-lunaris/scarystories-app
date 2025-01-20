@@ -12,17 +12,21 @@
 <body>
     <%- include('../partials/nav') %>
 
-    <h1 class="title">Create a New Story!</h1>
+        <h1 class="title">Create a New Story!</h1>
 
-    <form action="/stories" method="POST" class="form">
-        <label for="title">Title:</label>
-        <input type="text" name="title" id="title" class="large-input" />
-    
-        <label for="content">Story:</label>
-        <textarea name="content" id="content" class="large-textarea" placeholder="We recommend writing your story in a separate document and then copying and pasting it here." style="height: 300px;"></textarea>
-    
-        <button class="action-button" type="submit">Add Story</button>
-    </form>
+        <div class="new-form">
+            <form action="/stories" method="POST" class="form">
+                <label for="title">Title:</label>
+                <input type="text" name="title" id="title" class="large-input" />
+
+                <label for="content">Story:</label>
+                <textarea name="content" id="content" class="large-textarea"
+                    placeholder="We recommend writing your story in a separate document and then copying and pasting it here."
+                    style="height: 300px;"></textarea>
+
+                <button class="action-button" type="submit">Add Story</button>
+            </form>
+        </div>
 
 </body>
 

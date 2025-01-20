@@ -82,8 +82,23 @@ router.route('/stories/random').get(async function (req, res, next) {
         const allStories = await Story.find().populate('user');
         const randomStory = allStories[Math.floor(Math.random() * allStories.length)];
 
+        let userVoteValue = null;
+        let userRatingValue = null;
+
+        const userVote = randomStory.votes.find(vote => vote.user.toString() === req.session.user._id.toString());
+        if (userVote) {
+            userVoteValue = userVote.value;
+        }
+
+        const userRating = randomStory.ratings.find(rating => rating.user.toString() === req.session.user._id.toString());
+        if (userRating) {
+            userRatingValue = userRating.value;
+        }
+
         res.render('stories/random.ejs', {
-            story: randomStory
+            story: randomStory,
+            userVote: userVoteValue,
+            userRating: userRatingValue,
         });
     } catch (e) {
         next(e);

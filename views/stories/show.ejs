@@ -91,7 +91,7 @@
                             <% story.comments.forEach(comment=> { %>
                                 <li class="comment-item">
                                     <span class="comment-content">
-                                        <%= comment.content %>
+                                        <%= story.user.username %>: <%=comment.content %>
                                     </span>
                                     <% if (user && comment.user._id.toString()===user._id.toString()) { %>
                                         <form

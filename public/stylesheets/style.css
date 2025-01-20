@@ -69,14 +69,13 @@ nav {
     color: #d3d3d3;
     text-decoration: none;
     margin: 0 10px;
-    font-family: 'Metal Mania', Arial, sans-serif;
-    transition: color 0.3s ease;
-  }
-  
-  nav a:hover {
-    text-decoration: underline;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav a:hover {
     color: #e74c3c;
-  }
+    text-shadow: 0 0 10px #670001, 0 0 20px #670001, 0 0 30px #670001, 0 0 40px #670001;
+}
 
   @media (max-width: 1024px) {
     nav {
@@ -144,27 +143,76 @@ nav {
     font-size: 50px;
     margin-top: 0px;
     margin-bottom: -20px;
+    color: #a8322d; 
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    animation: neon-glow 1.5s ease-in-out infinite alternate; 
+}
+
+@keyframes neon-glow {
+    0% {
+        text-shadow: 0 0 5px #670001, 0 0 10px #670001, 0 0 15px #670001, 0 0 20px #670001;
+    }
+    100% {
+        text-shadow: 0 0 10px #670001, 0 0 20px #670001, 0 0 30px #670001, 0 0 40px #670001;
+    }
 }
 
 .intro-text {
     margin-top: -5px;
+    color: #a8322d;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    animation: neon-glow 1.5s ease-in-out infinite alternate;
 }
 
 .allstories-button {
-    display: inline-block;
+    display: block; 
+    margin: 20px auto; 
     padding: 10px 20px;
     font-size: 1.2rem;
     font-weight: bold;
-    color: #fff;
-    background-color: #e74c3c;
-    border: none;
+    color: white; 
+    background-color: transparent;
     border-radius: 5px;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 5px #a8322d, 0 0 10px #a8322d, 0 0 15px #a8322d;
+    /* animation: neon-glow 1.5s ease-in-out infinite alternate; */
+    max-width: 200px; 
+    width: 100%; 
+    box-sizing: border-box; 
 }
 
 .allstories-button:hover {
-    background-color: #c0392b;
+    color: #e74c3c;
+    animation: pulse 1.5s infinite;
+    box-shadow: 0 0 10px #a8322d, 0 0 20px #a8322d, 0 0 30px #a8322d;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px #a8322d, 0 0 20px #a8322d, 0 0 30px #a8322d;
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 15px #670001, 0 0 25px #670001, 0 0 40px #670001;
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px #a8322d, 0 0 20px #a8322d, 0 0 30px #a8322d;
+    }
 }
 
 /* story-cards */

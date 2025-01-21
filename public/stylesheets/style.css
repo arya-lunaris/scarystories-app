@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap");
 
 /* Body and text */
 body {
@@ -11,21 +12,11 @@ body {
 }
 
 .title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
     text-align: center;
-    color: #a8322d !important; 
+    color: #a8322d; 
     animation: neon-glow 1.5s ease-in-out infinite alternate; 
-}
-
-h1,
-h2,
-h3,
-p,
-a,
-li,
-span,
-button {
-    color: #d3d3d3;
-    font-family: 'Metal Mania', Arial, sans-serif;
 }
 
 /* navbar */
@@ -180,43 +171,28 @@ nav a:hover {
     display: block; 
     margin: 20px auto; 
     padding: 10px 20px;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: bold;
-    color: white; 
+    color: #a8322d; 
     background-color: transparent;
-    border-radius: 5px;
-    text-decoration: none;
     transition: all 0.3s ease;
     text-align: center;
     position: relative;
-    box-shadow: 0 0 5px #a8322d, 0 0 10px #a8322d, 0 0 15px #a8322d;
-    /* animation: neon-glow 1.5s ease-in-out infinite alternate; */
+    animation: neon-glow 1.5s ease-in-out infinite alternate; 
     max-width: 200px; 
     width: 100%; 
-    box-sizing: border-box; 
+    text-decoration: underline;
+
 }
 
 .allstories-button:hover {
+    text-decoration: underline;
+    text-shadow: 0 0 10px #670001, 0 0 20px #670001, 0 0 30px #670001, 0 0 40px #670001;
     animation: pulse 1.5s infinite;
-    box-shadow: 0 0 10px #a8322d, 0 0 20px #a8322d, 0 0 30px #a8322d;
-    transform: scale(1.1); 
+    transform: scale(1.2); 
     transition: all 0.3s ease; 
+    animation: neon-glow 1.5s ease-in-out infinite alternate; 
 }
-
-/* @keyframes pulse {
-    0% {
-        transform: scale(1);
-        box-shadow: 0 0 10px #a8322d, 0 0 20px #a8322d, 0 0 30px #a8322d;
-    }
-    50% {
-        transform: scale(1.1);
-        box-shadow: 0 0 15px #91130f, 0 0 25px #91130f, 0 0 40px #91130f;
-    }
-    100% {
-        transform: scale(1);
-        box-shadow: 0 0 10px #a8322d, 0 0 20px #a8322d, 0 0 30px #a8322d;
-    }
-} */
 
 /* story-cards */
 .story-list {
@@ -327,32 +303,35 @@ nav a:hover {
 }
 
 /* story-page */
-.container {
-    max-width: 900px;
-    margin: 20px auto;
+.story-container {
+    background-color: rgba(0, 0, 0, 0.9);
     padding: 20px;
-    background-color: #1a1a1a;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 40px auto;
+    margin-top: -20px;
 }
 
-h1.title {
+.story-page-title {
     font-size: 2.5rem;
     margin-bottom: 10px;
-    color: #d3d3d3;
+    text-align: center;
+    color: #a8322d; 
+    animation: neon-glow 1.5s ease-in-out infinite alternate; 
 }
 
 .story-author {
     font-size: 1.2rem;
     color: #a0a0a0;
-    margin-top: -10px;
+    margin-top: 10px;
     margin-bottom: 20px;
 }
 
 .story-content p {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     line-height: 1.6;
     color: #d3d3d3;
+    font-family: 'Caveat', Arial, sans-serif; 
 }
 
 /* Vote and Rating Section for Story Page */
@@ -414,7 +393,6 @@ h1.title {
     text-shadow: 0 0 5px #a8322d, 0 0 10px #a8322d, 0 0 15px #a8322d, 0 0 20px #a8322d;
 }
 
-
 @keyframes button-glow {
     0% {
         box-shadow: 0 0 2px #a8322d, 0 0 5px #a8322d, 0 0 10px #a8322d;
@@ -441,11 +419,19 @@ h1.title {
 }
 
 .comment-item {
-    background-color: #000000;
     padding: 10px;
     border-radius: 5px;
+}
+
+.comment-author {
+    font-weight: bold;
+    font-family: 'Caveat', Arial, sans-serif;
+
+}
+.comment-content {
+    font-family: 'Caveat', Arial, sans-serif;
     color: #d3d3d3;
-    font-size: 1.1rem;
+    font-size: 1.4rem;
 }
 
 .delete-comment-button {
@@ -458,8 +444,9 @@ h1.title {
 }
 
 .delete-comment-button:hover {
-    color: #FF4D4D;
-    text-shadow: 0 0 5px #a8322d, 0 0 10px #a8322d, 0 0 15px #a8322d, 0 0 20px #a8322d;
+    color: #e74c3c;
+    text-shadow: 0 0 5px #670001, 0 0 10px #670001, 0 0 5px #670001, 0 0 10px #670001;
+    transition: all 0.3s ease; 
 }
 
 /* Comment Box for Story Page */
@@ -500,17 +487,6 @@ h1.title {
 
 .action-button:hover {
     background-color: #45a049;
-}
-
-/* Styling for Story Page */
-.story-container {
-    background-color: rgba(0, 0, 0, 0.9);
-    color: #d3d3d3;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 800px;
-    margin: 40px auto;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
 }
 
 .button-container {
@@ -615,4 +591,3 @@ h1.title {
     text-decoration: underline;
     color: #e74c3c;
 }
-

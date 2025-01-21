@@ -85,20 +85,22 @@ router.route('/stories/random').get(async function (req, res, next) {
         let userVoteValue = null;
         let userRatingValue = null;
 
-        const userVote = randomStory.votes.find(vote => vote.user.toString() === req.session.user._id.toString());
-        if (userVote) {
-            userVoteValue = userVote.value;
-        }
-
-        const userRating = randomStory.ratings.find(rating => rating.user.toString() === req.session.user._id.toString());
-        if (userRating) {
-            userRatingValue = userRating.value;
+        if (req.session.user && req.session.user._id) {
+            const userVote = randomStory.votes.find(vote => vote.user.toString() === req.session.user._id.toString());
+            if (userVote) {
+                userVoteValue = userVote.value;
+            }
+            const userRating = randomStory.ratings.find(rating => rating.user.toString() === req.session.user._id.toString());
+            if (userRating) {
+                userRatingValue = userRating.value;
+            }
         }
 
         res.render('stories/show.ejs', {
             story: randomStory,
             userVote: userVoteValue,
             userRating: userRatingValue,
+            isLoggedIn: !!req.session.user, 
         });
     } catch (e) {
         next(e);
@@ -109,7 +111,7 @@ router.route('/stories/:id').get(async function (req, res, next) {
     try {
         const storyId = req.params.id;
         const story = await Story.findById(storyId).populate('user').populate('comments.user');
-        
+
         if (!story) {
             return res.redirect('/error/storyNotFound');
         }
@@ -117,20 +119,22 @@ router.route('/stories/:id').get(async function (req, res, next) {
         let userVoteValue = null;
         let userRatingValue = null;
 
-        const userVote = story.votes.find(vote => vote.user.toString() === req.session.user._id.toString());
-        if (userVote) {
-            userVoteValue = userVote.value;
-        }
-
-        const userRating = story.ratings.find(rating => rating.user.toString() === req.session.user._id.toString());
-        if (userRating) {
-            userRatingValue = userRating.value;
+        if (req.session.user && req.session.user._id) {
+            const userVote = story.votes.find(vote => vote.user.toString() === req.session.user._id.toString());
+            if (userVote) {
+                userVoteValue = userVote.value;
+            }
+            const userRating = story.ratings.find(rating => rating.user.toString() === req.session.user._id.toString());
+            if (userRating) {
+                userRatingValue = userRating.value;
+            }
         }
 
         res.render('stories/show.ejs', {
             story: story,
-            userVote: userVoteValue,
-            userRating: userRatingValue,
+            userVote: userVoteValue, 
+            userRating: userRatingValue, 
+            isLoggedIn: !!req.session.user, 
         });
     } catch (e) {
         next(e);
@@ -142,7 +146,6 @@ router.route('/stories').post(async function (req, res, next) {
         if (!req.session.user) {
             return res.redirect('/error/loginError');
         }
-
 
         req.body.user = req.session.user;
         await Story.create(req.body);

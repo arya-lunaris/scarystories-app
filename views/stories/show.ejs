@@ -140,7 +140,7 @@
                             <button id="comment-button" class="action-button" type="submit">Post Comment</button>
                         </form>
                         <% } else { %>
-                            <p><a href="/user/login">Log in</a> to post a comment or manage the story.</p>
+                            <p class="centered-link"><a href="/user/login">Log in</a> to post a comment or manage the story.</p>
                             <% } %>
 
                                 <% if (user && story.user._id.toString()===user._id.toString()) { %>

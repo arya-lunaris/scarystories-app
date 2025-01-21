@@ -15,8 +15,8 @@ body {
     font-size: 2.5rem;
     margin-bottom: 10px;
     text-align: center;
-    color: #a8322d; 
-    animation: neon-glow 1.5s ease-in-out infinite alternate; 
+    color: #a8322d;
+    animation: neon-glow 1.5s ease-in-out infinite alternate;
 }
 
 /* navbar */
@@ -27,38 +27,38 @@ nav {
     padding: 10px 20px;
     background-color: rgba(0, 0, 0, 0.8);
     font-size: 20px;
-  }
-  
-  .navbar-container {
+}
+
+.navbar-container {
     display: flex;
     width: 100%;
     justify-content: space-between;
     align-items: center;
-  }
-  
-  .nav-left {
+}
+
+.nav-left {
     flex-grow: 1;
-  }
-  
-  .nav-middle {
+}
+
+.nav-middle {
     display: flex;
     justify-content: center;
     gap: 20px;
     flex-grow: 2;
-  }
-  
-  .nav-right {
+}
+
+.nav-right {
     display: flex;
     justify-content: flex-end;
     flex-grow: 1;
-  }
-  
-  .logo-gif {
+}
+
+.logo-gif {
     width: 200px;
     height: auto;
-  }
-  
-  nav a {
+}
+
+nav a {
     color: #d3d3d3;
     text-decoration: none;
     margin: 0 10px;
@@ -70,60 +70,60 @@ nav a:hover {
     text-shadow: 0 0 5px #670001, 0 0 10px #670001, 0 0 20px #670001, 0 0 30px #670001;
 }
 
-  @media (max-width: 1024px) {
+@media (max-width: 1024px) {
     nav {
-      font-size: 18px;
+        font-size: 18px;
     }
-  
+
     .nav-middle {
-      gap: 10px; 
+        gap: 10px;
     }
-  
+
     .nav-right a {
-      margin-left: 10px; 
+        margin-left: 10px;
     }
-  }
-  
-  @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
     nav {
-      font-size: 16px;
+        font-size: 16px;
     }
-  
+
     .logo-gif {
-      display: none; 
+        display: none;
     }
-  
+
     .nav-middle {
-      gap: 8px; 
+        gap: 8px;
     }
-  }
-  
-  @media (max-width: 480px) {
+}
+
+@media (max-width: 480px) {
     nav {
-      flex-direction: column; 
-      align-items: center;
+        flex-direction: column;
+        align-items: center;
     }
-  
+
     .nav-left,
     .nav-middle,
     .nav-right {
-      flex-grow: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 10px;
+        flex-grow: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10px;
     }
-  
+
     nav a {
-      margin: 5px 0; 
-      font-size: 14px;
+        margin: 5px 0;
+        font-size: 14px;
     }
-  
+
     .nav-middle,
     .nav-right {
-      justify-content: center;
+        justify-content: center;
     }
-  }
+}
 
 /* homepage styling */
 .home-container {
@@ -136,20 +136,21 @@ nav a:hover {
     font-size: 50px;
     margin-top: 0px;
     margin-bottom: -20px;
-    color: #a8322d; 
+    color: #a8322d;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
     position: relative;
     display: inline-block;
     font-weight: bold;
-    animation: neon-glow 1.5s ease-in-out infinite alternate; 
+    animation: neon-glow 1.5s ease-in-out infinite alternate;
 }
 
 @keyframes neon-glow {
     0% {
         text-shadow: 0 0 5px #670001, 0 0 10px #670001, 0 0 15px #670001, 0 0 20px #670001;
     }
+
     100% {
         text-shadow: 0 0 10px #670001, 0 0 20px #670001, 0 0 30px #670001, 0 0 40px #670001;
     }
@@ -168,41 +169,40 @@ nav a:hover {
 }
 
 .allstories-button {
-    display: block; 
-    margin: 20px auto; 
+    display: block;
+    margin: 20px auto;
     padding: 10px 20px;
     font-size: 1.3rem;
     font-weight: bold;
-    color: #a8322d; 
+    color: #a8322d;
     background-color: transparent;
     transition: all 0.3s ease;
     text-align: center;
     position: relative;
-    animation: neon-glow 1.5s ease-in-out infinite alternate; 
-    max-width: 200px; 
-    width: 100%; 
-    text-decoration: underline;
-
+    animation: neon-glow 1.5s ease-in-out infinite alternate;
+    max-width: 200px;
+    width: 100%;
+    text-decoration: none;
 }
 
 .allstories-button:hover {
     text-decoration: underline;
     text-shadow: 0 0 10px #670001, 0 0 20px #670001, 0 0 30px #670001, 0 0 40px #670001;
     animation: pulse 1.5s infinite;
-    transform: scale(1.2); 
-    transition: all 0.3s ease; 
-    animation: neon-glow 1.5s ease-in-out infinite alternate; 
+    transform: scale(1.2);
+    transition: all 0.3s ease;
+    animation: neon-glow 1.5s ease-in-out infinite alternate;
 }
 
 /* story-cards */
 .story-list {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); 
+    grid-template-columns: repeat(5, 1fr);
     gap: 20px;
     padding: 20px;
     margin-top: 20px;
-    max-width: 1200px; 
-    margin: 0 auto; 
+    max-width: 1200px;
+    margin: 0 auto;
     justify-content: center;
 }
 
@@ -211,11 +211,11 @@ nav a:hover {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    min-height: 350px; 
+    min-height: 350px;
     height: auto;
-    width: 250px; 
+    width: 250px;
     max-width: 100%;
-    position: relative; 
+    position: relative;
 }
 
 .story-title {
@@ -234,7 +234,7 @@ nav a:hover {
 
 .story-preview {
     margin-top: -5px;
-    font-family: 'Caveat', Arial, sans-serif; 
+    font-family: 'Caveat', Arial, sans-serif;
     font-size: 1.2em;
 }
 
@@ -248,11 +248,11 @@ nav a:hover {
     padding: 10px;
     position: relative;
     margin-top: auto;
-    width: auto; 
+    width: auto;
     max-width: 200px;
     box-sizing: border-box;
-    margin-left: auto; 
-    margin-right: auto; 
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .center-button a {
@@ -273,36 +273,36 @@ nav a:hover {
 .center-button a:hover {
     background-color: transparent;
     box-shadow: 0 0 10px #a8322d, 0 0 15px #a8322d, 0 0 20px #a8322d;
-    transform: scale(1.1); 
-    transition: all 0.3s ease; 
+    transform: scale(1.1);
+    transition: all 0.3s ease;
 }
 
 @media (max-width: 1024px) {
     .story-list {
-        grid-template-columns: repeat(3, 1fr); 
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media (max-width: 768px) {
     .story-list {
-        grid-template-columns: repeat(2, 1fr); 
-        padding: 10px; 
+        grid-template-columns: repeat(2, 1fr);
+        padding: 10px;
     }
 
     .story-card {
         width: 100%;
-        min-height: 300px; 
+        min-height: 300px;
     }
 }
 
 @media (max-width: 480px) {
     .story-list {
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr;
     }
 
     .story-card {
-        width: 100%; 
-        min-height: 250px; 
+        width: 100%;
+        min-height: 250px;
     }
 }
 
@@ -320,8 +320,8 @@ nav a:hover {
     font-size: 2.5rem;
     margin-bottom: 10px;
     text-align: center;
-    color: #a8322d; 
-    animation: neon-glow 1.5s ease-in-out infinite alternate; 
+    color: #a8322d;
+    animation: neon-glow 1.5s ease-in-out infinite alternate;
 }
 
 .story-author {
@@ -335,28 +335,28 @@ nav a:hover {
     font-size: 1.5rem;
     line-height: 1.6;
     color: #d3d3d3;
-    font-family: 'Caveat', Arial, sans-serif; 
+    font-family: 'Caveat', Arial, sans-serif;
 }
 
 /* Vote and Rating Section for Story Page */
 .vote-rating-section {
     display: flex;
-    justify-content: space-between;  
+    justify-content: space-between;
     margin: 20px 0;
-    width: 100%;  
+    width: 100%;
 }
 
 .vote-section,
 .rating-section {
-    width: 48%;  
+    width: 48%;
 }
 
 .vote-section {
-    text-align: left; 
+    text-align: left;
 }
 
 .rating-section {
-    text-align: right; 
+    text-align: right;
 }
 
 .vote-title,
@@ -372,9 +372,12 @@ nav a:hover {
     border: none;
     cursor: pointer;
     margin-top: -10px;
+    margin-bottom: 50px;
 }
 
-.upvote, .downvote, .rate-icon {
+.upvote,
+.downvote,
+.rate-icon {
     width: 30px;
     height: auto;
     margin: 5px;
@@ -382,18 +385,21 @@ nav a:hover {
     transition: transform 0.2s ease, opacity 0.3s ease;
 }
 
-.upvote:hover, .downvote:hover, .rate-icon:hover {
+.upvote:hover,
+.downvote:hover,
+.rate-icon:hover {
     transform: scale(1.2);
     opacity: 0.8;
 }
 
-.vote-button.active, .rate-button.active {
-    background: linear-gradient(135deg, #a8322d, #8b2a24); 
+.vote-button.active,
+.rate-button.active {
+    background: linear-gradient(135deg, #a8322d, #8b2a24);
     color: #fff;
     border-radius: 50%;
     padding: 2px;
     transform: scale(1.1);
-    animation: button-glow 1.5s ease-in-out infinite alternate; 
+    animation: button-glow 1.5s ease-in-out infinite alternate;
     text-shadow: 0 0 5px #a8322d, 0 0 10px #a8322d, 0 0 15px #a8322d, 0 0 20px #a8322d;
 }
 
@@ -401,6 +407,7 @@ nav a:hover {
     0% {
         box-shadow: 0 0 2px #a8322d, 0 0 5px #a8322d, 0 0 10px #a8322d;
     }
+
     100% {
         box-shadow: 0 0 5px #a8322d, 0 0 10px #a8322d, 0 0 15px #a8322d;
     }
@@ -412,6 +419,7 @@ nav a:hover {
 }
 
 .comment-title {
+    margin-top: -30px;
     font-size: 1.8rem;
     color: #d3d3d3;
     margin-bottom: 30px;
@@ -450,13 +458,13 @@ nav a:hover {
 
 .delete-comment-button:hover {
     color: #e74c3c;
-    text-shadow: 0 0 5px #670001, 0 0 10px #670001, 0 0 5px #670001, 0 0 10px #670001;
-    transition: all 0.3s ease; 
+    text-shadow: 0 0 5px #670001, 0 0 10px #670001, 0 0 20px #670001, 0 0 30px #670001;
+    transition: all 0.3s ease;
 }
 
 /* Comment Box for Story Page */
 .post-comment {
-    margin-top: 50px;
+    margin-top: 30px;
     margin-bottom: 10px;
     font-size: 1.5rem;
     color: #d3d3d3;
@@ -475,8 +483,8 @@ nav a:hover {
 }
 
 #comment-button {
-    padding: 5px 10px; 
-    font-size: 1rem;   
+    padding: 5px 10px;
+    font-size: 1rem;
     border-radius: 3px;
 }
 
@@ -588,10 +596,12 @@ nav a:hover {
 .centered-link a {
     font-size: 18px;
     text-decoration: none;
-    transition: text-decoration 0.3s ease;
+    transition: color 0.5s ease, text-shadow 0.5s ease;
 }
 
 .centered-link a:hover {
+    color: #a8322d;
+    text-shadow: 0 0 5px #670001, 0 0 10px #670001, 0 0 20px #670001, 0 0 30px #670001;
+    animation: pulse 1.5s infinite;
     text-decoration: underline;
-    color: #e74c3c;
 }

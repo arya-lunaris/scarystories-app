@@ -19,6 +19,16 @@ body {
     animation: neon-glow 1.5s ease-in-out infinite alternate;
 }
 
+@keyframes neon-glow {
+    0% {
+        text-shadow: 0 0 5px #670001, 0 0 10px #670001, 0 0 15px #670001, 0 0 20px #670001;
+    }
+
+    100% {
+        text-shadow: 0 0 10px #670001, 0 0 20px #670001, 0 0 30px #670001, 0 0 40px #670001;
+    }
+}
+
 /* navbar */
 nav {
     display: flex;
@@ -146,16 +156,6 @@ nav a:hover {
     animation: neon-glow 1.5s ease-in-out infinite alternate;
 }
 
-@keyframes neon-glow {
-    0% {
-        text-shadow: 0 0 5px #670001, 0 0 10px #670001, 0 0 15px #670001, 0 0 20px #670001;
-    }
-
-    100% {
-        text-shadow: 0 0 10px #670001, 0 0 20px #670001, 0 0 30px #670001, 0 0 40px #670001;
-    }
-}
-
 .intro-text {
     margin-top: -5px;
     color: #a8322d;
@@ -237,11 +237,6 @@ nav a:hover {
     font-family: 'Caveat', Arial, sans-serif;
     font-size: 1.2em;
 }
-
-/* .story-preview {
-    margin-top: 5px;
-    font-size: 1.em;
-} */
 
 .center-button {
     text-align: center;
@@ -394,22 +389,22 @@ nav a:hover {
 
 .vote-button.active,
 .rate-button.active {
-    background: linear-gradient(135deg, #a8322d, #8b2a24);
+    background: linear-gradient(135deg, #670001, #670001);
     color: #fff;
     border-radius: 50%;
     padding: 2px;
     transform: scale(1.1);
     animation: button-glow 1.5s ease-in-out infinite alternate;
-    text-shadow: 0 0 5px #a8322d, 0 0 10px #a8322d, 0 0 15px #a8322d, 0 0 20px #a8322d;
+    text-shadow: 0 0 5px #670001, 0 0 10px #670001, 0 0 15px #670001, 0 0 20px #670001;
 }
 
 @keyframes button-glow {
     0% {
-        box-shadow: 0 0 2px #a8322d, 0 0 5px #a8322d, 0 0 10px #a8322d;
+        box-shadow: 0 0 2px #670001, 0 0 5px #670001, 0 0 10px #670001;
     }
 
     100% {
-        box-shadow: 0 0 5px #a8322d, 0 0 10px #a8322d, 0 0 15px #a8322d;
+        box-shadow: 0 0 5px #670001, 0 0 10px #670001, 0 0 15px #670001;
     }
 }
 
@@ -466,20 +461,26 @@ nav a:hover {
 .post-comment {
     margin-top: 30px;
     margin-bottom: 10px;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: #d3d3d3;
 }
 
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+}
+
 .comment-text-area {
-    width: 100%;
+    width: 50%; 
     padding: 10px;
     border: 1px solid #555;
     border-radius: 5px;
     background-color: #333;
     color: #d3d3d3;
     font-size: 1.1rem;
-    resize: vertical;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
 }
 
 #comment-button {
@@ -489,18 +490,23 @@ nav a:hover {
 }
 
 .action-button {
-    background-color: #4CAF50;
+    background-color: black;
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
     font-family: 'Metal Mania', Arial, sans-serif;
+    text-align: center;
+    box-shadow: 0 0 5px #a8322d, 0 0 10px #a8322d, 0 0 15px #a8322d; 
+    font-size: 0.8em !important;
 }
 
 .action-button:hover {
-    background-color: #45a049;
+    box-shadow: 0 0 10px #a8322d, 0 0 15px #a8322d, 0 0 20px #a8322d; 
+    transition: all 0.3s ease; 
+    transform: scale(1.1);
 }
 
 .button-container {
@@ -522,36 +528,63 @@ nav a:hover {
 }
 
 .edit-story-button {
-    background-color: #4CAF50;
-    margin-right: 10px;
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Metal Mania', Arial, sans-serif;
+    text-align: center;
+    box-shadow: 0 0 5px #a8322d, 0 0 10px #a8322d, 0 0 15px #a8322d; 
+    font-size: 1em !important;
+    margin-right: 50px;
     transition: background-color 0.3s ease;
+    margin-bottom: 20px;
 }
 
 .delete-button {
-    background-color: #e74c3c;
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
     border: none;
-    height: 41px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Metal Mania', Arial, sans-serif;
+    text-align: center;
+    box-shadow: 0 0 5px #a8322d, 0 0 10px #a8322d, 0 0 15px #a8322d; 
+    font-size: 1em !important;
+    border: none;
+    height: 45px;
     transition: background-color 0.3s ease;
     font-family: 'Metal Mania', Arial, sans-serif;
+    margin-bottom: 20px;
 }
 
 .edit-story-button:hover {
-    background-color: #45a049;
-}
+    box-shadow: 0 0 10px #a8322d, 0 0 15px #a8322d, 0 0 20px #a8322d; 
+    transition: all 0.3s ease; 
+    transform: scale(1.1);}
 
 .delete-button:hover {
-    background-color: #c0392b;
-}
+    box-shadow: 0 0 10px #a8322d, 0 0 15px #a8322d, 0 0 20px #a8322d; 
+    transition: all 0.3s ease; 
+    transform: scale(1.1);}
 
 /* styling for forms for all pages */
 .form {
     width: 400px;
     margin: 0 auto;
-    margin-top: 40px;
+    margin-top: 20px;
     padding: 20px;
-    background-color: #1a1a1a;
+    background-color: black;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
 }
 
 .form label {
@@ -571,21 +604,24 @@ nav a:hover {
 }
 
 .form .action-button {
-    width: auto;
-    padding: 10px;
-    background-color: #4CAF50;
+    margin-top: 20px;
+    background-color: black;
     color: white;
+    padding: 10px 20px;
     border: none;
-    border-radius: 4px;
-    font-size: 16px;
+    border-radius: 5px;
     cursor: pointer;
-    margin: 0 auto;
-    display: block;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
+    font-family: 'Metal Mania', Arial, sans-serif;
+    text-align: center;
+    box-shadow: 0 0 5px #a8322d, 0 0 10px #a8322d, 0 0 15px #a8322d; 
+    font-size: 1em !important;
 }
 
 .form .action-button:hover {
-    background-color: #45a049;
+    box-shadow: 0 0 10px #a8322d, 0 0 15px #a8322d, 0 0 20px #a8322d; 
+    transition: all 0.3s ease; 
+    transform: scale(1.1);
 }
 
 .centered-link {

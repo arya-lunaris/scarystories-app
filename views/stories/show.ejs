@@ -135,7 +135,7 @@
 
                     <% if (user) { %>
                         <h3 class="post-comment">Post a Comment</h3>
-                        <form action="/stories/<%= story._id %>/comments" method="POST">
+                        <form action="/stories/<%= story._id %>/comments" method="POST" class="comment-form">
                             <textarea class="comment-text-area" name="content" rows="3" required></textarea>
                             <button id="comment-button" class="action-button" type="submit">Post Comment</button>
                         </form>

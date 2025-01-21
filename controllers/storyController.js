@@ -95,7 +95,7 @@ router.route('/stories/random').get(async function (req, res, next) {
             userRatingValue = userRating.value;
         }
 
-        res.render('stories/random.ejs', {
+        res.render('stories/show.ejs', {
             story: randomStory,
             userVote: userVoteValue,
             userRating: userRatingValue,

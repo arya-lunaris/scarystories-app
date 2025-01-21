@@ -34,21 +34,21 @@
                                 <form action="/stories/<%= story._id %>/vote" method="POST" class="rate-vote-form">
                                     <% if (userVote === 'up') { %>
                                         <button type="submit" name="value" value="up" class="vote-button active">
-                                            <img src="/images/thumb-up.png" alt="Thumb Up" class="thumb-up">
+                                            <img src="/images/upvote.png" alt="Upvote" class="upvote">
                                         </button>
                                     <% } else { %>
                                         <button type="submit" name="value" value="up" class="vote-button">
-                                            <img src="/images/thumb-up.png" alt="Thumb Up" class="thumb-up">
+                                            <img src="/images/upvote.png" alt="Upvote" class="upvote">
                                         </button>
                                     <% } %>
                                     
                                     <% if (userVote === 'down') { %>
                                         <button type="submit" name="value" value="down" class="vote-button active">
-                                            <img src="/images/thumb-down.png" alt="Thumb Down" class="thumb-down">
+                                            <img src="/images/downvote.png" alt="Downvote" class="downvote">
                                         </button>
                                     <% } else { %>
                                         <button type="submit" name="value" value="down" class="vote-button">
-                                            <img src="/images/thumb-down.png" alt="Thumb Down" class="thumb-down">
+                                            <img src="/images/downvote.png" alt="Downvote" class="downvote">
                                         </button>
                                     <% } %>
                                 </form>

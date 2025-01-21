@@ -370,7 +370,7 @@ nav a:hover {
     margin-top: -10px;
 }
 
-.thumb-up, .thumb-down, .rate-icon {
+.upvote, .downvote, .rate-icon {
     width: 30px;
     height: auto;
     margin: 5px;
@@ -378,7 +378,7 @@ nav a:hover {
     transition: transform 0.2s ease, opacity 0.3s ease;
 }
 
-.thumb-up:hover, .thumb-down:hover, .rate-icon:hover {
+.upvote:hover, .downvote:hover, .rate-icon:hover {
     transform: scale(1.2);
     opacity: 0.8;
 }
@@ -441,6 +441,7 @@ nav a:hover {
     cursor: pointer;
     font-size: 1rem;
     transition: color 0.3s ease;
+    font-family: 'Metal Mania', Arial, sans-serif;
 }
 
 .delete-comment-button:hover {
@@ -483,6 +484,7 @@ nav a:hover {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-family: 'Metal Mania', Arial, sans-serif;
 }
 
 .action-button:hover {
@@ -518,6 +520,7 @@ nav a:hover {
     border: none;
     height: 41px;
     transition: background-color 0.3s ease;
+    font-family: 'Metal Mania', Arial, sans-serif;
 }
 
 .edit-story-button:hover {

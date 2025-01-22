@@ -6,15 +6,15 @@ router.route('/loginError').get(function (req, res) {
     res.render('errors/loginError.ejs');
 });
 
-router.route('/deleteRecipeError').get(function (req, res) {
+router.route('/deleteStoryError').get(function (req, res) {
     res.render('errors/deleteStoryError.ejs');
 });
 
-router.route('/updateRecipeError').get(function (req, res) {
+router.route('/updateStoryError').get(function (req, res) {
     res.render('errors/updateStoryError.ejs');
 });
 
-router.route('/recipeNotFound').get(function (req, res) {
+router.route('/storyNotFound').get(function (req, res) {
     res.render('errors/storyNotFound.ejs');
 });
 

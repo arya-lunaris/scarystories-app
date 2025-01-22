@@ -468,12 +468,12 @@ nav a:hover {
 .comment-form {
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    justify-content: center; 
+    align-items: center;
+    justify-content: center;
 }
 
 .comment-text-area {
-    width: 50%; 
+    width: 50%;
     padding: 10px;
     border: 1px solid #555;
     border-radius: 5px;
@@ -500,13 +500,13 @@ nav a:hover {
     transition: all 0.3s ease;
     font-family: 'Metal Mania', Arial, sans-serif;
     text-align: center;
-    box-shadow: 0 0 5px #a8322d, 0 0 10px #a8322d, 0 0 15px #a8322d; 
+    box-shadow: 0 0 5px #a8322d, 0 0 10px #a8322d, 0 0 15px #a8322d;
     font-size: 0.8em !important;
 }
 
 .action-button:hover {
-    box-shadow: 0 0 10px #a8322d, 0 0 15px #a8322d, 0 0 20px #a8322d; 
-    transition: all 0.3s ease; 
+    box-shadow: 0 0 10px #a8322d, 0 0 15px #a8322d, 0 0 20px #a8322d;
+    transition: all 0.3s ease;
     transform: scale(1.1);
 }
 
@@ -538,7 +538,7 @@ nav a:hover {
     transition: all 0.3s ease;
     font-family: 'Metal Mania', Arial, sans-serif;
     text-align: center;
-    box-shadow: 0 0 5px #a8322d, 0 0 10px #a8322d, 0 0 15px #a8322d; 
+    box-shadow: 0 0 5px #a8322d, 0 0 10px #a8322d, 0 0 15px #a8322d;
     font-size: 1em !important;
     margin-right: 50px;
     transition: background-color 0.3s ease;
@@ -555,7 +555,7 @@ nav a:hover {
     transition: all 0.3s ease;
     font-family: 'Metal Mania', Arial, sans-serif;
     text-align: center;
-    box-shadow: 0 0 5px #a8322d, 0 0 10px #a8322d, 0 0 15px #a8322d; 
+    box-shadow: 0 0 5px #a8322d, 0 0 10px #a8322d, 0 0 15px #a8322d;
     font-size: 1em !important;
     border: none;
     height: 45px;
@@ -565,14 +565,16 @@ nav a:hover {
 }
 
 .edit-story-button:hover {
-    box-shadow: 0 0 10px #a8322d, 0 0 15px #a8322d, 0 0 20px #a8322d; 
-    transition: all 0.3s ease; 
-    transform: scale(1.1);}
+    box-shadow: 0 0 10px #a8322d, 0 0 15px #a8322d, 0 0 20px #a8322d;
+    transition: all 0.3s ease;
+    transform: scale(1.1);
+}
 
 .delete-button:hover {
-    box-shadow: 0 0 10px #a8322d, 0 0 15px #a8322d, 0 0 20px #a8322d; 
-    transition: all 0.3s ease; 
-    transform: scale(1.1);}
+    box-shadow: 0 0 10px #a8322d, 0 0 15px #a8322d, 0 0 20px #a8322d;
+    transition: all 0.3s ease;
+    transform: scale(1.1);
+}
 
 /* styling for forms for all pages */
 .form {
@@ -584,8 +586,8 @@ nav a:hover {
     border-radius: 8px;
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    justify-content: center; 
+    align-items: center;
+    justify-content: center;
 }
 
 .form label {
@@ -615,13 +617,13 @@ nav a:hover {
     transition: all 0.3s ease;
     font-family: 'Metal Mania', Arial, sans-serif;
     text-align: center;
-    box-shadow: 0 0 5px #a8322d, 0 0 10px #a8322d, 0 0 15px #a8322d; 
+    box-shadow: 0 0 5px #a8322d, 0 0 10px #a8322d, 0 0 15px #a8322d;
     font-size: 1em !important;
 }
 
 .form .action-button:hover {
-    box-shadow: 0 0 10px #a8322d, 0 0 15px #a8322d, 0 0 20px #a8322d; 
-    transition: all 0.3s ease; 
+    box-shadow: 0 0 10px #a8322d, 0 0 15px #a8322d, 0 0 20px #a8322d;
+    transition: all 0.3s ease;
     transform: scale(1.1);
 }
 
@@ -641,4 +643,14 @@ nav a:hover {
     text-shadow: 0 0 5px #670001, 0 0 10px #670001, 0 0 20px #670001, 0 0 30px #670001;
     animation: pulse 1.5s infinite;
     text-decoration: underline;
+}
+
+.reset-password {
+    margin-top: -5px;
+    font-size: 14px;
+}
+
+.reset-password a {
+    margin-top: -5px;
+    font-size: 14px;
 }

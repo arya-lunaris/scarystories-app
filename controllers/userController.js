@@ -8,16 +8,23 @@ router.route('/signup').get(async function (req, res) {
 
 router.route('/signup').post(async function (req, res, next) {
     try {
-        const { password, passwordConfirmation } = req.body;
+        const { username, email, password, passwordConfirmation } = req.body;
 
         if (password !== passwordConfirmation) {
             return res.redirect('/error/passwordsNotMatch');
         }
-
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
         if (!passwordRegex.test(password)) {
             return res.redirect('/error/invalidPassword');
+        }
 
+        const existingUsername = await User.findOne({ username: username });
+        if (existingUsername) {
+            return res.redirect('/error/usernameError');
+        }
+        const existingEmail = await User.findOne({ email: email });
+        if (existingEmail) {
+            return res.redirect('/error/emailError');
         }
 
         await User.create(req.body);
@@ -57,13 +64,19 @@ router.route('/profile').post(async function (req, res, next) {
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
         if (password && !passwordRegex.test(password)) {
             return res.redirect('/error/invalidPassword');
-
         }
 
         const user = await User.findById(req.session.user._id);
-
         if (!user) {
             return res.redirect('/error/userNotFound');
+        }
+        const existingUsername = await User.findOne({ username: username });
+        if (existingUsername && existingUsername._id.toString() !== user._id.toString()) {
+            return res.redirect('/error/usernameError');
+        }
+        const existingEmail = await User.findOne({ email: email });
+        if (existingEmail && existingEmail._id.toString() !== user._id.toString()) {
+            return res.redirect('/error/emailError');
         }
 
         if (username) {
@@ -85,7 +98,6 @@ router.route('/profile').post(async function (req, res, next) {
         next(e);
     }
 });
-
 
 router.route('/login').get(async function (req, res) {
     res.render('user/login.ejs');
@@ -121,14 +133,14 @@ router.route('/reset-password').get(async function (req, res) {
     res.render('user/resetPassword.ejs');
 });
 
-router.route('/reset-password').post(async (req, res, next) => { 
+router.route('/reset-password').post(async (req, res, next) => {
     try {
         const { email, newPassword, passwordConfirmation } = req.body;
 
         if (newPassword !== passwordConfirmation) {
             return res.redirect('/error/passwordsNotMatch');
         }
-        
+
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
         if (newPassword && !passwordRegex.test(newPassword)) {
             return res.redirect('/error/invalidPassword');
@@ -146,7 +158,7 @@ router.route('/reset-password').post(async (req, res, next) => {
         res.redirect('/user/login');
     } catch (e) {
         console.error(e);
-        next(e); 
+        next(e);
     }
 });
 

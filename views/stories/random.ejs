@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Random Story</title>
+</head>
+
+<body>
+    <%- include('../partials/nav') %>
+
+        <div class="story-container">
+            <div>
+                <div class="story-card-content">
+                    <h1 class="story-page-title">
+                        <%= story.title %>
+                    </h1>
+
+                    <p class="story-author">Written by: <%= story.user.username %>
+                    </p>
+
+                    <div class="story-content">
+                        <% story.content.split('\n').forEach(paragraph => { %>
+                            <p><%= paragraph %></p>
+                        <% }); %>
+                    </div>
+
+                    <div class="vote-rating-section">
+                        <div class="vote-section">
+                            <% if (user) { %>
+                                <h3 class="vote-title">Did you like this story?</h3>
+                                <form action="/stories/<%= story._id %>/vote" method="POST" class="rate-vote-form">
+                                    <% if (userVote === 'up') { %>
+                                        <button type="submit" name="value" value="up" class="vote-button active">
+                                            <img src="/images/upvote.png" alt="Upvote" class="upvote">
+                                        </button>
+                                    <% } else { %>
+                                        <button type="submit" name="value" value="up" class="vote-button">
+                                            <img src="/images/upvote.png" alt="Upvote" class="upvote">
+                                        </button>
+                                    <% } %>
+                                    
+                                    <% if (userVote === 'down') { %>
+                                        <button type="submit" name="value" value="down" class="vote-button active">
+                                            <img src="/images/downvote.png" alt="Downvote" class="downvote">
+                                        </button>
+                                    <% } else { %>
+                                        <button type="submit" name="value" value="down" class="vote-button">
+                                            <img src="/images/downvote.png" alt="Downvote" class="downvote">
+                                        </button>
+                                    <% } %>
+                                </form>
+                            <% } %>
+                        </div>
+                    
+                        <div class="rating-section">
+                            <% if (user) { %>
+                                <h3 class="rate-title">How scary did you find this story?</h3>
+                                <form action="/stories/<%= story._id %>/rate" method="POST" class="rate-vote-form">
+                                    <% if (userRating === 1) { %>
+                                        <button type="submit" name="value" value="1" class="rate-button active">
+                                            <img src="/images/rate-icon.png" alt="Rating Icon" class="rate-icon">
+                                        </button>
+                                    <% } else { %>
+                                        <button type="submit" name="value" value="1" class="rate-button">
+                                            <img src="/images/rate-icon.png" alt="Rating Icon" class="rate-icon">
+                                        </button>
+                                    <% } %>
+                                    
+                                    <% if (userRating === 2) { %>
+                                        <button type="submit" name="value" value="2" class="rate-button active">
+                                            <img src="/images/rate-icon.png" alt="Rating Icon" class="rate-icon">
+                                        </button>
+                                    <% } else { %>
+                                        <button type="submit" name="value" value="2" class="rate-button">
+                                            <img src="/images/rate-icon.png" alt="Rating Icon" class="rate-icon">
+                                        </button>
+                                    <% } %>
+                    
+                                    <% if (userRating === 3) { %>
+                                        <button type="submit" name="value" value="3" class="rate-button active">
+                                            <img src="/images/rate-icon.png" alt="Rating Icon" class="rate-icon">
+                                        </button>
+                                    <% } else { %>
+                                        <button type="submit" name="value" value="3" class="rate-button">
+                                            <img src="/images/rate-icon.png" alt="Rating Icon" class="rate-icon">
+                                        </button>
+                                    <% } %>
+                    
+                                    <% if (userRating === 4) { %>
+                                        <button type="submit" name="value" value="4" class="rate-button active">
+                                            <img src="/images/rate-icon.png" alt="Rating Icon" class="rate-icon">
+                                        </button>
+                                    <% } else { %>
+                                        <button type="submit" name="value" value="4" class="rate-button">
+                                            <img src="/images/rate-icon.png" alt="Rating Icon" class="rate-icon">
+                                        </button>
+                                    <% } %>
+                    
+                                    <% if (userRating === 5) { %>
+                                        <button type="submit" name="value" value="5" class="rate-button active">
+                                            <img src="/images/rate-icon.png" alt="Rating Icon" class="rate-icon">
+                                        </button>
+                                    <% } else { %>
+                                        <button type="submit" name="value" value="5" class="rate-button">
+                                            <img src="/images/rate-icon.png" alt="Rating Icon" class="rate-icon">
+                                        </button>
+                                    <% } %>
+                                </form>
+                            <% } %>
+                        </div>
+                    </div>
+
+                    <div class="comment-section">
+                        <h3 class="comment-title">Comments</h3>
+                        <ul class="comment-list">
+                            <% story.comments.forEach(comment=> { %>
+                                <li class="comment-item">
+                                    <span class="comment-content">
+                                        <span class="comment-author"><%= comment.user.username %></span>: <%=comment.content %>
+                                    </span>
+                                    <% if (user && comment.user._id.toString()===user._id.toString()) { %>
+                                        <form
+                                            action="/stories/<%= story._id %>/comments/<%= comment._id %>?_method=DELETE"
+                                            method="POST" class="comment-form">
+                                            <button type="submit" class="delete-comment-button">Delete</button>
+                                        </form>
+                                        <% } %>
+                                </li>
+                                <% }) %>
+                        </ul>
+                    </div>
+
+                    <% if (user) { %>
+                        <h3 class="post-comment">Post a Comment</h3>
+                        <form action="/stories/<%= story._id %>/comments" method="POST">
+                            <textarea class="comment-text-area" name="content" rows="3" required></textarea>
+                            <button id="comment-button" class="action-button" type="submit">Post Comment</button>
+                        </form>
+                        <% } else { %>
+                            <p><a href="/user/login">Log in</a> to post a comment or manage the story.</p>
+                            <% } %>
+
+                                <% if (user && story.user._id.toString()===user._id.toString()) { %>
+                                    <div class="button-container">
+                                        <a href="/stories/edit/<%= story._id %>" class="edit-story-button">Edit
+                                            Story</a>
+                                        <form action="/stories/<%= story._id %>?_method=DELETE" method="POST"
+                                            class="delete-form">
+                                            <button class="delete-button" type="submit">
+                                                Delete "<%= story.title %>"
+                                            </button>
+                                        </form>
+                                    </div>
+                                    <% } %>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>

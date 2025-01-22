@@ -654,3 +654,33 @@ nav a:hover {
     margin-top: -5px;
     font-size: 14px;
 }
+
+.error-title {
+    font-size: 2rem;
+    text-align: center;
+    color: #a8322d;
+    animation: neon-glow 1.5s ease-in-out infinite alternate;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.error-image {
+    width: 100%;
+    max-width: 500px;
+    margin: 200px auto 20px auto;
+    display: block;
+    opacity: 0.6;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

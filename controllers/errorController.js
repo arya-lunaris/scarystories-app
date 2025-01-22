@@ -34,4 +34,12 @@ router.route('/invalidPassword').get(function (req, res) {
     res.render('errors/invalidPassword.ejs');
 });
 
+router.route('/usernameError').get(function (req, res) {
+    res.render('errors/usernameError.ejs');
+});
+
+router.route('/emailError').get(function (req, res) {
+    res.render('errors/emailError.ejs');
+});
+
 export default router;

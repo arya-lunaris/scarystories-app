@@ -29,37 +29,39 @@ app.use(session({
         collectionName: 'sessions', 
     }),
     cookie: {
-        secure: false, 
+        secure: false,
         httpOnly: true,
-        maxAge: 1000 * 60 * 60 * 24, 
+        maxAge: 1000 * 60 * 60 * 24,
     },
 }));
 
 app.use((req, res, next) => {
     res.locals.user = req.session.user || null;
     next();
-  });
+});
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+
 app.use('/', storyController);
 app.use('/user', userController);
-app.use('/error', errorController);
 app.use('/', commentController);
 app.use('/', voteController);
 app.use('/', rateController);
+app.use('/error', errorController);
 
 app.use(errorHandler);
 
-
-
 const url = 'mongodb://127.0.0.1:27017/';
 const dbname = 'scarystories-db'; 
-mongoose.connect(`${url}${dbname}`, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(`${url}${dbname}`, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('MongoDB connected!'))
+  .catch((err) => console.error('MongoDB connection error:', err));
 
 app.listen(3000, () => {
   console.log('Server is running on port 3000!');

@@ -24,10 +24,13 @@ const userSchema = new mongoose.Schema({
     }
 });
 
+
 userSchema.pre('save', function (next) {
-    this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync())
-    next()
-})
+    if (this.isModified('password')) {
+        this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync());
+    }
+    next();
+});
 
 userSchema.methods.isPasswordValid = function (plaintextPassword) {
     return bcrypt.compareSync(plaintextPassword, this.password)

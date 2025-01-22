@@ -1,6 +1,6 @@
 import express from 'express';
 import User from '../models/user.js';
-
+import bcrypt from 'bcrypt';
 const router = express.Router();
 
 router.route('/signup').get(async function (req, res) {
@@ -81,11 +81,12 @@ router.route('/profile').post(async function (req, res, next) {
 
         await user.save();
 
-        res.redirect('/user/profile');
+        res.redirect('/home');
     } catch (e) {
         next(e);
     }
 });
+
 
 router.route('/login').get(async function (req, res) {
     res.render('user/login.ejs');

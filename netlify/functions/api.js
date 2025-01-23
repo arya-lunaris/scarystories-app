@@ -7,7 +7,7 @@ import { dirname } from 'path';
 import MongoStore from 'connect-mongo'
 import storyController from '../../controllers/storyController.js';
 import userController from '../../controllers/userController.js'; 
-import errorController from './controllers/errorController.js';
+import errorController from '../../controllers/errorController.js';
 import commentController from '../../controllers/commentController.js'; 
 import voteController from '../../controllers/voteController.js';
 import rateController from '../../controllers/rateController.js';
@@ -55,11 +55,5 @@ app.use('/', voteController);
 app.use('/', rateController);
 app.use('/error', errorController);
 app.use(errorHandler);
-
-const url = 'mongodb://127.0.0.1:27017/';
-const dbname = 'scarystories-db'; 
-mongoose.connect(`${url}${dbname}`, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('MongoDB connected!'))
-  .catch((e) => console.error('MongoDB connection error:', e));
 
 export const handler = serverless(app)

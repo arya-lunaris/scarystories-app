@@ -17,6 +17,7 @@ dotenv.config();
 
 mongoose.connect(process.env.MONGODB_URI)
 
+app.use(express.static(path.join(__dirname, 'public')));  
 const app = express();
 
 app.use(session({

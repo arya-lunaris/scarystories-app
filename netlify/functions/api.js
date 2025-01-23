@@ -46,7 +46,7 @@ app.use(express.static("public"));
 app.set('view engine', 'ejs');
 app.set('views', path.join(process.cwd(), 'views'));
 app.get('/', (req,res) => {
-    res.render('/stories/home.ejs')
+    res.render('stories/home.ejs')
 })
 app.use('/', storyController);
 app.use('/user', userController);

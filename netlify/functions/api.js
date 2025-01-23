@@ -19,7 +19,6 @@ dotenv.config();
 
 mongoose.connect(process.env.MONGODB_URI)
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 
 app.use(session({

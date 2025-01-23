@@ -21,6 +21,7 @@
     "method-override": "^3.0.0",
     "mongoose": "^8.9.5",
     "mongoose-unique-validator": "^5.0.1",
+    "serverless-http": "^3.2.0",
     "validator": "^13.12.0"
   }
 }

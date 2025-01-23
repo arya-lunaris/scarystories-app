@@ -512,7 +512,7 @@ nav a:hover {
 .button-container {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 50px;
     margin-top: 20px;
 }
 
@@ -539,7 +539,6 @@ nav a:hover {
     text-align: center;
     box-shadow: 0 0 5px #a8322d, 0 0 10px #a8322d, 0 0 15px #a8322d;
     font-size: 1em !important;
-    margin-right: 50px;
     transition: background-color 0.3s ease;
     margin-bottom: 20px;
 }
@@ -667,8 +666,8 @@ nav a:hover {
 
 .error-image {
     width: 100%;
-    max-width: 500px;
-    margin: 200px auto 20px auto;
+    max-width: 600px;
+    margin: 175px auto 20px auto;
     display: block;
     opacity: 0.6;
     animation: fadeIn 2s ease-in-out;

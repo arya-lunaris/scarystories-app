@@ -9,7 +9,8 @@ router.route('/stories/:id/rate').post(async (req, res, next) => {
             return res.redirect('/error/loginError');
         }
 
-        const { value } = req.body;  
+        const { value } = req.body;
+        const ratingValue = Number(value);
         const story = await Story.findById(req.params.id);
 
         if (!story) {
@@ -17,11 +18,17 @@ router.route('/stories/:id/rate').post(async (req, res, next) => {
         }
 
         const existingRating = story.ratings.find(rating => rating.user.toString() === req.session.user._id.toString());
-
         if (existingRating) {
-            existingRating.value = value; 
+            if (existingRating.value === ratingValue) {
+                const index = story.ratings.findIndex(rating => rating.user.toString() === req.session.user._id.toString());
+                if (index !== -1) {
+                    story.ratings.splice(index, 1);
+                }
+            } else {
+                existingRating.value = ratingValue;
+            }
         } else {
-            story.ratings.push({ user: req.session.user._id, value: value });  
+            story.ratings.push({ user: req.session.user._id, value: ratingValue });
         }
 
         await story.save();

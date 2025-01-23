@@ -17,7 +17,6 @@ router.route('/stories/:id/vote').post(async (req, res, next) => {
             }
 
             const existingVote = story.votes.find(vote => vote.user.toString() === req.session.user._id.toString());
-
             if (existingVote) {
                 if (existingVote.value === value) {
                     const index = story.votes.findIndex(vote => vote.user.toString() === req.session.user._id.toString());

@@ -2,8 +2,6 @@ import express from 'express';
 import mongoose from 'mongoose';
 import path from 'path'; 
 import methodOverride from 'method-override';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
 import MongoStore from 'connect-mongo'
 import storyController from '../../controllers/storyController.js';
 import userController from '../../controllers/userController.js'; 
@@ -46,7 +44,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(process.cwd(), 'views'));
+app.get('/', (req,res) => {
+    res.render('/stories/home.ejs')
+})
 app.use('/', storyController);
 app.use('/user', userController);
 app.use('/', commentController);

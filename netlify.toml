@@ -8,3 +8,14 @@
   from = "/*"
   status = 200
   to = "/.netlify/functions/api/:splat"
+
+
+[[redirects]]
+  from = "/images/*"
+  to = "/public/images/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/stylesheets/*"
+  to = "/public/stylesheets/:splat"
+  status = 200

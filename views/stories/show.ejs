@@ -145,8 +145,7 @@
 
                                 <% if (user && story.user._id.toString()===user._id.toString()) { %>
                                     <div class="button-container">
-                                        <a href="/stories/edit/<%= story._id %>" class="edit-story-button">Edit
-                                            Story</a>
+                                        <a href="/stories/edit/<%= story._id %>" class="edit-story-button">Edit "<%= story.title %>"</a>
                                         <form action="/stories/<%= story._id %>?_method=DELETE" method="POST"
                                             class="delete-form">
                                             <button class="delete-button" type="submit">

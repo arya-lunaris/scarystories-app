@@ -5,16 +5,19 @@ import methodOverride from 'method-override';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import MongoStore from 'connect-mongo'
-import storyController from './controllers/storyController.js';
-import userController from './controllers/userController.js'; 
+import storyController from '../../controllers/storyController.js';
+import userController from '../../controllers/userController.js'; 
 import errorController from './controllers/errorController.js';
-import commentController from './controllers/commentController.js'; 
-import voteController from './controllers/voteController.js';
-import rateController from './controllers/rateController.js';
-import errorHandler from './middleware/errorHandler.js';
+import commentController from '../../controllers/commentController.js'; 
+import voteController from '../../controllers/voteController.js';
+import rateController from '../../controllers/rateController.js';
+import errorHandler from '../../middleware/errorHandler.js';
 import session from 'express-session';
+import serverless from 'serverless-http';
 import dotenv from 'dotenv';
 dotenv.config();
+
+mongoose.connect(process.env.MONGODB_URI)
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -24,7 +27,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({
-        mongoUrl: 'mongodb://localhost:27017/scarystories-db',
+        mongoUrl: process.env.MONGODB_URI,
         collectionName: 'sessions', 
     }),
     cookie: {
@@ -42,7 +45,7 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static("public"));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use('/', storyController);
@@ -59,6 +62,4 @@ mongoose.connect(`${url}${dbname}`, { useNewUrlParser: true, useUnifiedTopology:
   .then(() => console.log('MongoDB connected!'))
   .catch((e) => console.error('MongoDB connection error:', e));
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000!');
-});
+export const handler = serverless(app)

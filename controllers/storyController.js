@@ -26,12 +26,10 @@ router.route('/stories/popular').get(async function (req, res, next) {
     try {
         const allStories = await Story.find().populate('user');
 
-
         const popularStories = allStories.filter(story => {
             const upvotes = story.votes.filter(vote => vote.value === 'up');
             return upvotes.length > 2;
         });
-
 
         const sortedStories = popularStories.sort((a, b) => {
             const upvotesA = a.votes.filter(vote => vote.value === 'up').length;

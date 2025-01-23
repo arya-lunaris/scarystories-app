@@ -9,7 +9,6 @@
   status = 200
   to = "/.netlify/functions/api/:splat"
 
-
 [[redirects]]
   from = "/images/*"
   to = "/public/images/:splat"
